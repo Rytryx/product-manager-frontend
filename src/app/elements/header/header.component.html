@@ -2,21 +2,27 @@
   <button mat-icon-button [matMenuTriggerFor]="mainMenu" class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Gemstone Galleria</span>
+  <span>products-manager</span>
   <span class="example-spacer"></span>
   
   <button mat-button [matMenuTriggerFor]="mainMenu">Menu</button>
 
   <mat-menu #mainMenu="matMenu">
     <button mat-menu-item routerLink="/">Home</button>
-    <button mat-menu-item [matMenuTriggerFor]="categoriesMenu">Kategorien</button>
-    <button mat-menu-item routerLink="/products">Produkte</button>
+    <button mat-menu-item [matMenuTriggerFor]="categoriesMenu">Categories</button>
+    <button mat-menu-item [matMenuTriggerFor]="productsMenu">Products</button>
     <button mat-menu-item routerLink="/auth/login">Login</button>
-    <button mat-menu-item routerLink="/categories/create">Create</button>
   </mat-menu>
 
   <mat-menu #categoriesMenu="matMenu">
-    <button mat-menu-item routerLink="/categories/sub1">Sub Kategorie 1</button>
-    <button mat-menu-item routerLink="/categories/sub2">Sub Kategorie 2</button>
+    <button mat-menu-item routerLink="/categories/create">categories create</button>
+    <button mat-menu-item routerLink="/categories/modify">categories modify</button>
+    <button mat-menu-item routerLink="/categories/delete">categories delete</button>
+  </mat-menu>
+
+  <mat-menu #productsMenu="matMenu">
+    <button mat-menu-item routerLink="/products/create">products create</button>
+    <button mat-menu-item routerLink="/products/modify">products modify</button>
+    <button mat-menu-item routerLink="/products/delete">products delete</button>
   </mat-menu>
 </mat-toolbar>
