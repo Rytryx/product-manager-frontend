@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
-import {MatCardModule} from "@angular/material/card";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import {NgIf} from "@angular/common";
+import {UserControllerService} from "../../openapi-client";
 
 @Component({
   selector: 'app-register',
@@ -15,14 +17,16 @@ import {MatIconModule} from "@angular/material/icon";
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgIf
   ]
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   hide = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserControllerService) {
     this.registerForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
@@ -47,10 +51,13 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
+      this.userService.register(this.registerForm.value).subscribe(val => {
+        alert('erfolgreich registriert');
+      })
     }
   }
 
-  onCancel() {
-
+  onCancel(): void {
+    this.registerForm.reset();
   }
 }

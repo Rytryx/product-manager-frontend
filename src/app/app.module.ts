@@ -16,6 +16,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import { ApiModule, Configuration} from "./openapi-client";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -37,6 +39,12 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    ApiModule.forRoot(() => {
+      return new Configuration({
+        basePath: 'https://product-manager.cyrotech.ch'
+      });
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

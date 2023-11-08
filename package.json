@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate-client": "openapi-generator-cli generate -i https://product-manager.cyrotech.ch/v3/api-docs -g typescript-angular -o src/app/openapi-client"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "~16.2.10",
     "@angular/platform-browser-dynamic": "~16.2.10",
     "@angular/router": "~16.2.10",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
