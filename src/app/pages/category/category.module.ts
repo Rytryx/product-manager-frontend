@@ -4,6 +4,10 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryModifyComponent } from './category-modify/category-modify.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { CategoryRoutingModule } from './category-routing.module';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -15,7 +19,11 @@ import { CategoryRoutingModule } from './category-routing.module';
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class CategoryModule { }

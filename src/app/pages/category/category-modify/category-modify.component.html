@@ -1,1 +1,22 @@
-<p>category-modify works!</p>
+<div class="category-modify-container">
+  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+    <!-- Active Checkbox -->
+    <mat-checkbox formControlName="active">Aktiv</mat-checkbox>
+
+    <!-- Name Input -->
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="formGroup.get('name').hasError('required')">
+        Name ist erforderlich.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">
+      {{ isEdit ? 'Aktualisieren' : 'Erstellen' }}
+    </button>
+
+  </form>
+</div>
