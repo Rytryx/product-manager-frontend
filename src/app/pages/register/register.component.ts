@@ -5,7 +5,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import {NgIf} from "@angular/common";
-import {UserControllerService} from "../../openapi-client";
+import {RegisterDto, UserControllerService} from "../../openapi-client";
 
 @Component({
   selector: 'app-register',
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
-      this.userService.register(this.registerForm.value).subscribe(val => {
+      this.userService.register(this.registerForm.value as RegisterDto).subscribe(val => {
         alert('erfolgreich registriert');
       })
     }

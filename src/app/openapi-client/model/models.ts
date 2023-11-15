@@ -7,6 +7,7 @@ export * from './productCreateDto';
 export * from './productDetailDto';
 export * from './productShowDto';
 export * from './productUpdateDto';
+export * from './promoteResponse';
 export * from './registerDto';
 export * from './tokenWrapper';
 export * from './userShowDto';

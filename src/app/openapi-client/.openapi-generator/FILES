@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 api.module.ts
 api/api.ts
@@ -20,6 +19,7 @@ model/productCreateDto.ts
 model/productDetailDto.ts
 model/productShowDto.ts
 model/productUpdateDto.ts
+model/promoteResponse.ts
 model/registerDto.ts
 model/tokenWrapper.ts
 model/userShowDto.ts
