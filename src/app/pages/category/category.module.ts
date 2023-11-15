@@ -14,7 +14,6 @@ import {MatButtonModule} from "@angular/material/button";
 @NgModule({
   declarations: [
     CategoryListComponent,
-    CategoryModifyComponent,
     CategoryDetailComponent
   ],
   imports: [
@@ -23,7 +22,8 @@ import {MatButtonModule} from "@angular/material/button";
     ReactiveFormsModule,
     MatCheckboxModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    CategoryModifyComponent
   ]
 })
 export class CategoryModule { }

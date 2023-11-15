@@ -1,17 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {FormGroup, FormControl, Validators, ReactiveFormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryControllerService } from '../../openapi-client/api/categorycontroller.service';
+import { CategoryControllerService } from '../../../openapi-client';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-category-modify',
   templateUrl: './category-modify.component.html',
-  styleUrls: ['./category-modify.component.scss']
+  styleUrls: ['./category-modify.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatInputModule
+  ]
 })
 export class CategoryModifyComponent implements OnInit {
   formGroup: FormGroup;
   isEdit = false;
-  categoryId: number;
+  categoryId!: number;
 
   constructor(
     private categoryControllerService: CategoryControllerService,

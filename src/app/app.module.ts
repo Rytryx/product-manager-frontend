@@ -17,7 +17,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import { ApiModule, Configuration} from "./openapi-client";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthorizationInterceptor} from "./interceptors/authorization.interceptor";
 
 
 @NgModule({
@@ -46,7 +47,13 @@ import {HttpClientModule} from "@angular/common/http";
     }),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthorizationInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

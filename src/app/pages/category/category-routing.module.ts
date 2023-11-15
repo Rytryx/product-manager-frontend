@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryModifyComponent } from './category-modify/category-modify.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import {authGuard} from "../../auth.guard";
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component: CategoryModifyComponent
+    loadComponent: () => import('./category-modify/category-modify.component').then(v => v.CategoryModifyComponent),
+    canActivate: [authGuard]
   },
   {
     path: 'edit/:id',
